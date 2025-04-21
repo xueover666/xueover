@@ -1,7 +1,19 @@
 //变量名chinaTelecomAccount = `
 //变量格式: 手机号#服务密码
 //多号创建多个变量或者换行、&隔开
+/*
+电信营业厅 
 
+签到和完成部分金豆任务, 喂宠物
+7天,15天,28天连签抽奖, 宠物等级权益兑换
+
+自己设置电信的服务密码, 把 手机号#服务密码 填到变量里, 多账号换行或&或@隔开:
+export chinaTelecomAccount="13888888888#123456"
+
+每天运行一两次
+
+const $ = new Env("电信营业厅");
+*/
 
 (function (_0x1398c0) {
   process.env.NODE_OPTIONS = "--max-old-space-size=4096 --openssl-legacy-provider";
