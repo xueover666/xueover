@@ -1,1 +1,46 @@
-1
+import requests
+from bs4 import BeautifulSoup
+
+# 登录信息
+login_url = 'https://www.right.com.cn/forum/member.php?mod=logging&action=login&loginsubmit=yes&infloat=yes&lssubmit=yes&inajax=1'
+sign_url = 'https://www.right.com.cn/forum/plugin.php?id=dsu_paulsign:sign'
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
+data = {
+    'username': 'xueover',
+    'password': 'xueover521L',
+    'quickforward': 'yes',
+    'handlekey': 'ls'
+}
+
+# 创建会话
+session = requests.Session()
+
+# 登录
+response = session.post(login_url, headers=headers, data=data)
+
+# 检查是否登录成功
+if '欢迎您回来' in response.text:
+    print('登录成功')
+    # 访问签到页面
+    sign_page = session.get(sign_url, headers=headers)
+    soup = BeautifulSoup(sign_page.text, 'html.parser')
+
+    # 查找签到表单数据
+    formhash = soup.find('input', {'name': 'formhash'})['value']
+    sign_data = {
+        'formhash': formhash,
+        'qdxq': 'kx',  # 签到心情，这里选择开心
+        'qdmode': 3,  # 签到模式
+        'todaysay': '',
+        'fastreply': 0
+    }
+
+    # 提交签到请求
+    sign_response = session.post(sign_url, headers=headers, data=sign_data)
+    if '签到成功' in sign_response.text:
+        print('签到成功')
+    else:
+        print('签到失败')
+else:
+    print('登录失败')
