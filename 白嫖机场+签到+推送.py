@@ -427,7 +427,7 @@ def format_push_message(results: list) -> str:
         message += "\n"
     
     message += f"{'='*30}\n"
-    message += f"🔗 邀请链接: https://i2a4b0e5c3.skyxcloud.icu/auth/register?code=VjrqQt"
+    #message += f"🔗 邀请链接: https://i2a4b0e5c3.skyxcloud.icu/auth/register?code=VjrqQt"
     
     return message
 
