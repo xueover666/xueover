@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# cron:15 12 * * *
-# new Env("某小程序_现金毛一天5毛_并发")
 //小程序链接：mp://dhXLWkTyEcObF8c(#小程序://星韵优选/dhXLWkTyEcObF8c)
 //一定要走我的这里的小程序 之前的也重进一遍 这样那种签到的视频会多
 // 环境变量配置（环境变量名xyyy（格式：16ea02cb998bc4f9246816ea02*****）
